@@ -13,6 +13,6 @@
 ;*********************************************;
 
 (define jabiru-flix '( '("Blade Runner" "Ficção Científica" "Ridley Scott" '("Harrison Ford" "Rutger Hauer" "Sean Young" "Edward James Olmos" "Daryl Hannah") 1982 "117 min")
-                       '()
-                       '()
+                       '("teste1")
+                       '("teste2")
                        ))
