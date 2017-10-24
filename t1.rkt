@@ -25,4 +25,5 @@
 		(printf "Nome: ~a\n" (caadr filme))))
 
 (define (nomes_filmes)
-  (map (lambda (filme) (nome_filme filme)) jabiru-flix))
+  (begin (printf "******************\n") (printf " Nomes dos filmes\n") (printf "******************\n")
+    (map (lambda (filme) (nome_filme filme)) jabiru-flix)))
