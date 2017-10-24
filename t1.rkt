@@ -18,3 +18,9 @@
                        ))
 
 ;(caadar jabiru-flix) -> "Blade Runner", não to conseguindo acessar o restante
+;(define (nome_filme filme)
+;	(if (null? filme)
+;		(printf "Filme nao cadastrado")
+;		(cadr filme)))
+
+;(map (lambda (filme) (nome_filme filme)) jabiru-flix)
