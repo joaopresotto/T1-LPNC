@@ -58,19 +58,19 @@
       )
 )
 
-(define (nomes_filmes)
+(define (nome_filmes)
   (begin (printf "Nomes dos filmes: ")
     (map (lambda (filme) (nome_filme filme)) jabiru-flix)))
 
-(define (generos_filmes)
+(define (genero_filmes)
   (begin (printf "Generos dos filmes: ")
     (map (lambda (filme) (genero_filme filme)) jabiru-flix)))
 
-(define (diretores_filmes)
+(define (diretor_filmes)
   (begin (printf "Diretores dos filmes: ")
     (map (lambda (filme) (diretor_filme filme)) jabiru-flix)))
 
-(define (atores_filmes)
+(define (ator_filmes)
   (begin (printf "Atores dos filmes: \n")
     (map (lambda (filme) (atores_filme filme)) jabiru-flix)))
 
