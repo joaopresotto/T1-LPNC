@@ -26,13 +26,6 @@
   (begin (printf "******************\n") (printf " Nomes dos filmes\n") (printf "******************\n")
     (map (lambda (filme) (nome_filme filme)) jabiru-flix)))
 
-(define (nome_filme filme)
-    (if (null? filme)
-    		(printf "Filme nao cadastrado")
-    		(printf "Nome: ~a\n" (caadar filme) )
-    )
-)
-
 (define (genero_filme filme)
       (if (null? filme)
         	(printf "Filme nao cadastrado")
