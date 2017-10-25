@@ -1,9 +1,9 @@
-;**********************************
-; Membros do grupo:
-;   Gustavo Pires de Moraes
-;   João Gabriel Camacho Presotto
-;   Thiago Costa Leme Rodrigues
-;**********************************
+;*********************************************;
+;  Membros do grupo:                          ;
+;      Gustavo Pires de Moraes                ;
+;      João Gabriel Camacho Presotto          ;
+;      Thiago Costa Leme Rodrigues            ;
+;*********************************************;
 
 ;*********************************************;
 ; O acervo de filmes é organizado na forma de ;
@@ -17,8 +17,6 @@
                        '("teste2")
                        ))
 
-;(caadar jabiru-flix) -> "Blade Runner", não to conseguindo acessar o restante
-
 (define (nome_filme filme)
 	(if (null? filme)
 		(printf "Filme nao cadastrado")
@@ -27,3 +25,45 @@
 (define (nomes_filmes)
   (begin (printf "******************\n") (printf " Nomes dos filmes\n") (printf "******************\n")
     (map (lambda (filme) (nome_filme filme)) jabiru-flix)))
+
+(define (nome_filme filme)
+    (if (null? filme)
+    		(printf "Filme nao cadastrado")
+    		(printf "Nome: ~a\n" (caadar filme) )
+    )
+)
+
+(define (genero_filme filme)
+      (if (null? filme)
+        	(printf "Filme nao cadastrado")
+        	(printf "Genero: ~a\n" (cadr (cadar filme)) )
+      )
+)
+
+(define (diretor_filme filme)
+      (if (null? filme)
+        	(printf "Filme nao cadastrado")
+        	(printf "Diretor: ~a\n" (caddr (cadar filme)) )
+      )
+)
+
+(define (atores_filme filme)
+      (if (null? filme)
+        	(printf "Filme nao cadastrado")
+        	(printf "Atores: ~a\n" (cadddr (cadar filme)) )
+      )
+)
+
+(define (ano_filme filme)
+      (if (null? filme)
+        	(printf "Filme nao cadastrado")
+        	(printf "Ano: ~a\n" (car (cddddr (cadar filme))) )
+      )
+)
+
+(define (duracao_filme filme)
+      (if (null? filme)
+        	(printf "Filme nao cadastrado")
+        	(printf "Duração: ~a\n" (cadr (cddddr (cadar filme))) )
+      )
+)
