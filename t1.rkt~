@@ -13,9 +13,9 @@
 ; como diretor, duração, tema, etc.           ;
 ;*********************************************;
 
-(define jabiru-flix '( ("Blade Runner" "Ficção Científica" "Ridley Scott" ("Harrison Ford" "Rutger Hauer" "Sean Young" "Edward James Olmos" "Daryl Hannah") 1982 123)
-                       ("Blade Runner2" "batatinha" "Ridley Scott2" ("Harrison Ford2" "Rutger Hauer" "Sean Young" "Edward James Olmos" "Daryl Hannah") 1983 565)
-                       ("Blade Runner3" "batatinha" "Ridley Scott3" ("Harrison Ford3" "Rutger Hauer" "Sean Young" "Edward James Olmos" "Daryl Hannah") 1984 20)
+(define jabiru-flix '( ("Blade Runner" "Ficção Científica" "Ridley Scott" ("Harrison Ford" "Rutger Hauer" "Sean Young" "Edward James Olmos" "Daryl Hannah") 1982 "117 min")
+                       ("Blade Runner2" "Ficção Científica2" "Ridley Scott2" ("Harrison Ford2" "Rutger Hauer" "Sean Young" "Edward James Olmos" "Daryl Hannah") 1983 "117 min2")
+                       ("Blade Runner3" "Ficção Científica3" "Ridley Scott3" ("Harrison Ford3" "Rutger Hauer" "Sean Young" "Edward James Olmos" "Daryl Hannah") 1984 "117 min3")
                        ))
 
 (define (nome_filme filme)
@@ -64,7 +64,6 @@
 
 (define (genero_filmes)
   (begin (printf "Generos dos filmes: ")
-         
     (map (lambda (filme) (genero_filme filme)) jabiru-flix)))
 
 (define (diretor_filmes)
@@ -82,15 +81,3 @@
 (define (duracao_filmes)
   (begin (printf "Duracao dos filmes: \n")
     (map (lambda (filme) (duracao_filme filme)) jabiru-flix)))
-
-(define (filtra_genero genero)
-  (map (lambda (filme) (if (equal? genero (genero_filme filme)) filme '())) jabiru-flix))
-
-(define (filtra_diretor diretor)
-  (map (lambda (filme) (if (equal? diretor (diretor_filme filme)) filme '())) jabiru-flix))
-
-(define (filtra_ano ano)
-  (map (lambda (filme) (if (equal? ano (ano_filme filme)) filme '())) jabiru-flix))
-
-(define (filtra_duracao duracao_min duracao_max)
-  (map (lambda (filme) (if (and (>= (duracao_filme filme) duracao_min) (<= (duracao_filme filme) duracao_max)) filme '())) jabiru-flix))
