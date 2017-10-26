@@ -1,8 +1,6 @@
 #lang racket
 
-(define jabiru-flix
-
-          '( ("Blade Runner" "Sci-Fi" "Ridley Scott" ("Harrison Ford" "Rutger Hauer" "Sean Young") 1982 117)
+(define jabiru-flix '( ("Blade Runner" "Sci-Fi" "Ridley Scott" ("Harrison Ford" "Rutger Hauer" "Sean Young") 1982 117)
 
            ("Blade Runner 2049" "Sci-Fi" "Denis Villeneuve" ("Harrison Ford" "Ryan Gosling" "Ana de Armas") 2017 164)
 
@@ -64,44 +62,22 @@
 ))
 
 (define (nome_filme filme)
-	(if (null? filme)
-		'() ;(printf "Filme nao cadastrado")
-		(car filme) ));(printf "Nome: ~a\n" (caadr filme))))
+		(car filme))
 
 (define (genero_filme filme)
-      (if (null? filme)
-        	'() ;(printf "Filme nao cadastrado")
-        	(cadr filme) ;(printf "Genero: ~a\n" (cadr (cadar filme)) )
-      )
-)
+    (cadr filme))
 
 (define (diretor_filme filme)
-      (if (null? filme)
-        	'() ;(printf "Filme nao cadastrado")
-        	(caddr filme) ;(printf "Diretor: ~a\n" (caddr (cadar filme)) )
-      )
-)
+  	(caddr filme))
 
 (define (atores_filme filme)
-      (if (null? filme)
-        	'() ;(printf "Filme nao cadastrado")
-        	(cadddr filme) ;(printf "Atores: ~a\n" (cadddr (cadar filme)) )
-      )
-)
+  	(cadddr filme))
 
 (define (ano_filme filme)
-      (if (null? filme)
-        	'() ;(printf "Filme nao cadastrado")
-        	(cadddr (cdr filme)) ;(printf "Ano: ~a\n" (car (cddddr (cadar filme))) )
-      )
-)
+  	(cadddr (cdr filme)))
 
 (define (duracao_filme filme)
-      (if (null? filme)
-        	'() ;(printf "Filme nao cadastrado")
-        	(cadddr (cddr filme));(printf "Duração: ~a\n" (cadr (cddddr (cadar filme))) )
-      )
-)
+  	(cadddr (cddr filme)))
 
 (define (nome_filmes)
   (begin (printf "Nomes dos filmes: ")
@@ -162,12 +138,12 @@
        )
 )
 
-(define (ordena_nome l)
-        (if (null? l)
-             l
-            (if (null? (cdr l))
-                l
-                (let* ( [temp (particionar l '() '() )] [l1 (car temp)] [l2 (cdr temp)] )
+(define (ordena_nome acervo)
+        (if (null? acervo)
+             acervo
+            (if (null? (cdr acervo))
+                acervo
+                (let* ( [temp (particionar acervo '() '() )] [l1 (car temp)] [l2 (cdr temp)] )
                       (misturar_nome (ordena_nome l1) (ordena_nome l2) )
                  )
             )
@@ -187,14 +163,36 @@
        )
 )
 
-(define (ordena_ano l)
-        (if (null? l)
-             l
-            (if (null? (cdr l))
-                l
-                (let* ( [temp (particionar l '() '() )] [l1 (car temp)] [l2 (cdr temp)] )
+(define (ordena_ano acervo)
+        (if (null? acervo)
+             acervo
+            (if (null? (cdr acervo))
+                acervo
+                (let* ( [temp (particionar acervo '() '() )] [l1 (car temp)] [l2 (cdr temp)] )
                       (misturar_ano (ordena_ano l1) (ordena_ano l2) )
                  )
             )
         )
 )
+
+(define (ordena_duracao acervo)
+        (if (null? acervo)
+          acervo
+          (if (null? (cdr acervo))
+            acervo
+            (let* ( [temp (particionar acervo '() '() )] [l1 (car temp)] [l2 (cdr temp)] )
+                  (misturar_duracao (ordena_duracao l1) (ordena_duracao l2) )
+           ))))
+
+ (define (misturar_duracao l1 l2)
+        (if (null? l1)
+            l2
+            (if (null? l2)
+                l1
+                (if (<  (duracao_filme (car l1)) (duracao_filme (car l2)) )
+                    (cons (car l1) (misturar_duracao (cdr l1) l2) )
+                    (cons (car l2) (misturar_duracao l1 (cdr l2)) )
+                )
+            )
+        )
+ )
