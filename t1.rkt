@@ -1,4 +1,3 @@
-#lang racket
 ;*********************************************;
 ;  Membros do grupo:                          ;
 ;      Gustavo Pires de Moraes                ;
@@ -12,6 +11,11 @@
 ; lista contendo informações sobre o título   ;
 ; como diretor, duração, tema, etc.           ;
 ;*********************************************;
+
+; Para rodar no terminal
+; tira o #lang racket do inicio
+; racket -f <nome-do-programa>.rkt -i
+; #lang racket
 
 (define jabiru-flix '( ("Blade Runner" "Ficção Científica" "Ridley Scott" ("Harrison Ford" "Rutger Hauer" "Sean Young" "Edward James Olmos" "Daryl Hannah") 1982 123)
                        ("Blade Runner2" "batatinha" "Ridley Scott2" ("Harrison Ford2" "Rutger Hauer" "Sean Young" "Edward James Olmos" "Daryl Hannah") 1983 565)
@@ -64,7 +68,6 @@
 
 (define (genero_filmes)
   (begin (printf "Generos dos filmes: ")
-         
     (map (lambda (filme) (genero_filme filme)) jabiru-flix)))
 
 (define (diretor_filmes)
@@ -83,14 +86,14 @@
   (begin (printf "Duracao dos filmes: \n")
     (map (lambda (filme) (duracao_filme filme)) jabiru-flix)))
 
-(define (filtra_genero genero)
-  (map (lambda (filme) (if (equal? genero (genero_filme filme)) filme '())) jabiru-flix))
+(define (filtra_genero genero acervo)
+  (map (lambda (filme) (if (equal? genero (genero_filme filme)) filme '())) acervo))
 
-(define (filtra_diretor diretor)
-  (map (lambda (filme) (if (equal? diretor (diretor_filme filme)) filme '())) jabiru-flix))
+(define (filtra_diretor diretor acervo)
+  (map (lambda (filme) (if (equal? diretor (diretor_filme filme)) filme '())) acervo))
 
-(define (filtra_ano ano)
-  (map (lambda (filme) (if (equal? ano (ano_filme filme)) filme '())) jabiru-flix))
+(define (filtra_ano ano acervo)
+  (map (lambda (filme) (if (equal? ano (ano_filme filme)) filme '())) acervo))
 
-(define (filtra_duracao duracao_min duracao_max)
-  (map (lambda (filme) (if (and (>= (duracao_filme filme) duracao_min) (<= (duracao_filme filme) duracao_max)) filme '())) jabiru-flix))
+(define (filtra_duracao duracao_min duracao_max acervo)
+  (map (lambda (filme) (if (and (>= (duracao_filme filme) duracao_min) (<= (duracao_filme filme) duracao_max)) filme '())) acervo))
