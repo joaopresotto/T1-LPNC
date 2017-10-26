@@ -1,81 +1,83 @@
 ;*********************************************;
- ;  Membros do grupo:                          ;
- ;      Gustavo Pires de Moraes                ;
- ;      João Gabriel Camacho Presotto          ;
- ;      Thiago Costa Leme Rodrigues            ;
- ;*********************************************;
+;  Membros do grupo:                          ;
+;      Gustavo Pires de Moraes                ;
+;      João Gabriel Camacho Presotto          ;
+;      Thiago Costa Leme Rodrigues            ;
+;*********************************************;
 
- ;*********************************************;
- ; O acervo de filmes é organizado na forma de ;
- ; uma lista de listas, com cada elemento da   ;
- ; lista contendo informações sobre o título   ;
- ; como diretor, duração, tema, etc.           ;
- ;*********************************************;
+;*********************************************;
+; O acervo de filmes é organizado na forma de ;
+; uma lista de listas, com cada elemento da   ;
+; lista contendo informações sobre o título   ;
+; como diretor, duração, tema, etc.           ;
+;*********************************************;
+
+; Ex (<nome> <filme> <diretor> <atores> <ano> <duracao em min> <assistido ou não> <"gostei" ou "não gostei">)
 
 ; Para rodar no terminal
 ; tira o #lang racket do inicio
 ; racket -f <nome-do-programa>.rkt -i
 ; #lang racket
 
-(define jabiru-flix '( ("Blade Runner" "Sci-Fi" "Ridley Scott" ("Harrison Ford" "Rutger Hauer" "Sean Young") 1982 117)
+(define jabiru-flix '( ("Blade Runner" "Sci-Fi" "Ridley Scott" ("Harrison Ford" "Rutger Hauer" "Sean Young") 1982 117 "Não assistido" #f)
 
-           ("Blade Runner 2049" "Sci-Fi" "Denis Villeneuve" ("Harrison Ford" "Ryan Gosling" "Ana de Armas") 2017 164)
+                       ("Blade Runner 2049" "Sci-Fi" "Denis Villeneuve" ("Harrison Ford" "Ryan Gosling" "Ana de Armas") 2017 164 "Não assistido" #f)
 
-		       ("Raiders of the Lost Ark" "Aventura" "Steven Spielberg" ("Harrison Ford" "Karen Allen" "Paul Freeman") 1981 115)
+		       ("Raiders of the Lost Ark" "Aventura" "Steven Spielberg" ("Harrison Ford" "Karen Allen" "Paul Freeman") 1981 115 "Não assistido" #f)
 
-		       ("Pulp Fiction" "Crime"  "Quentin Tarantino" ("John Travolta" "Uma Thurman" "Samuel L. Jackson") 1994 154)
+		       ("Pulp Fiction" "Crime"  "Quentin Tarantino" ("John Travolta" "Uma Thurman" "Samuel L. Jackson") 1994 154 "Não assistido" #f)
 
-		       ("Terminator 2" "Sci-Fi" "James Cameron" ("Arnold Schwarzenegger" "Linda Hamilton" "Edward Furlong") 1991 137)
+		       ("Terminator 2" "Sci-Fi" "James Cameron" ("Arnold Schwarzenegger" "Linda Hamilton" "Edward Furlong") 1991 137 "Não assistido" #f)
 
-		       ("E.T. the Extra-Terrestrial" "Sci-Fi" "Steven Spielberg" ("Henry Thomas" "Drew Barrymore" "Peter Coyote") 1982 115)
+		       ("E.T. the Extra-Terrestrial" "Sci-Fi" "Steven Spielberg" ("Henry Thomas" "Drew Barrymore" "Peter Coyote") 1982 115 "Não assistido" #f)
 
-		       ("The Godfather" "Drama" "Francis Ford Coppola" ("Marlon Brando" "Al Pacino" "James Caan") 1972 175)
+		       ("The Godfather" "Drama" "Francis Ford Coppola" ("Marlon Brando" "Al Pacino" "James Caan") 1972 175 "Não assistido" #f)
 
-		       ("Scarface" "Crime" "Brian de Palma" ("Al Pacino" "Michelle Pfeiffer" "Steven Bauer") 1983 170)
+		       ("Scarface" "Crime" "Brian de Palma" ("Al Pacino" "Michelle Pfeiffer" "Steven Bauer") 1983 170 "Não assistido" #f)
 
-		       ("The Others" "Mistery" "Alejandro Amenabar" ("Nicole Kidman" "Christopher Eccleston" "Fionnula Flanagan") 2001 101)
+		       ("The Others" "Mistery" "Alejandro Amenabar" ("Nicole Kidman" "Christopher Eccleston" "Fionnula Flanagan") 2001 101 "Não assistido" #f)
 
-		       ("1984" "Drama" "Michael Anderson" ("Edmond O'Brien" "Michael Redgrave" "Jan Sterling") 1956  90)
+		       ("1984" "Drama" "Michael Anderson" ("Edmond O'Brien" "Michael Redgrave" "Jan Sterling") 1956  90 "Não assistido" #f)
 
-		       ("Gladiator" "Ação" "Ridley Scott" ("Russell Crowe" "Joaquin Phoenix" "Connie Nielsen") 2000 155)
+		       ("Gladiator" "Ação" "Ridley Scott" ("Russell Crowe" "Joaquin Phoenix" "Connie Nielsen") 2000 155 "Não assistido" #f)
 
-		       ("Titanic" "Drama" "James Cameron" ("Leonardo DiCaprio" "Kate Winslet" "Billy Zane") 1997 194)
+		       ("Titanic" "Drama" "James Cameron" ("Leonardo DiCaprio" "Kate Winslet" "Billy Zane") 1997 194 "Não assistido" #f)
 
-		       ("Fight Club" "Drama" "David Fincher" ("Brad Pitt" "Edward Norton" "Meat Loaf") 1999 139)
+		       ("Fight Club" "Drama" "David Fincher" ("Brad Pitt" "Edward Norton" "Meat Loaf") 1999 139 "Não assistido" #f)
 
-		       ("Matrix" "Sci-Fi" "Wachowskis" ("Keanu Reeves" "Laurence Fishburne" "Carrie-Anne Moss") 1999 136)
+		       ("Matrix" "Sci-Fi" "Wachowskis" ("Keanu Reeves" "Laurence Fishburne" "Carrie-Anne Moss") 1999 136 "Não assistido" #f)
 
-		       ("Dumbo" "Animation" "Samuel Armstrong" ("Sterling Holloway" "Edward Brophy" "James Baskett") 1941 64)
+		       ("Dumbo" "Animation" "Samuel Armstrong" ("Sterling Holloway" "Edward Brophy" "James Baskett") 1941 64 "Não assistido" #f)
 
-		       ("The Lion King" "Animation" "Roger Allers" ("Matthew Broderick" "Jeremy Irons" "James Earl Jones") 1994 88)
+		       ("The Lion King" "Animation" "Roger Allers" ("Matthew Broderick" "Jeremy Irons" "James Earl Jones") 1994 88 "Não assistido" #f)
 
-		       ("Tarzan" "Animation" "Chris Buck" ("Tony Goldwyn" "Minnie Driver" "Brian Blessed") 1999 88)
+		       ("Tarzan" "Animation" "Chris Buck" ("Tony Goldwyn" "Minnie Driver" "Brian Blessed") 1999 88 "Não assistido" #f)
 
-		       ("Se7en" "Mystery" "David Fincher" ("Morgan Freeman" "Brad Pitt" "Kevin Spacey") 1995  127)
+		       ("Se7en" "Mystery" "David Fincher" ("Morgan Freeman" "Brad Pitt" "Kevin Spacey") 1995  127 "Não assistido" #f)
 
-		       ("Fargo" "Thriller" "Coen Brothers" ("William H. Macy" "Frances McDormand" "Steve Buscemi") 1996 98)
+		       ("Fargo" "Thriller" "Coen Brothers" ("William H. Macy" "Frances McDormand" "Steve Buscemi") 1996 98 "Não assistido" #f)
 
-		       ("Predestination" "Sci-Fi" "The Spierig Brothers" ("Ethan Hawke" "Sarah Snook" "Noah Taylor") 2014 97)
+		       ("Predestination" "Sci-Fi" "The Spierig Brothers" ("Ethan Hawke" "Sarah Snook" "Noah Taylor") 2014 97 "Não assistido" #f)
 
-		       ("Arrival" "Sci-Fi" "Denis Villeneuve" ("Amy Adams" "Jeremy Renner" "Forest Whitaker") 2016 116)
+		       ("Arrival" "Sci-Fi" "Denis Villeneuve" ("Amy Adams" "Jeremy Renner" "Forest Whitaker") 2016 116 "Não assistido" #f)
 
-		       ("Hidden Figures" "Drama" "Theodore Melfi" ("Taraji P. Henson" "Octavia Spencer" "Janelle Monae") 2016 127)
+		       ("Hidden Figures" "Drama" "Theodore Melfi" ("Taraji P. Henson" "Octavia Spencer" "Janelle Monae") 2016 127 "Não assistido" #f)
 
-		       ("La La Land" "Music" "Damien Chazelle" ("Ryan Gosling" "Emma Stone" "Rosemarie DeWitt") 2016 128)
+		       ("La La Land" "Music" "Damien Chazelle" ("Ryan Gosling" "Emma Stone" "Rosemarie DeWitt") 2016 128 "Não assistido" #f)
 
-		       ("Star Wars: Episode V - The Empire Strikes Back" "Fantasy" "Irving Kershner" ("Mark Hamill" "Harrison Ford" "Carrie Fisher") 1980 124)
+		       ("Star Wars: Episode V - The Empire Strikes Back" "Fantasy" "Irving Kershner" ("Mark Hamill" "Harrison Ford" "Carrie Fisher") 1980 124 "Não assistido" #f)
 
-		       ("The Imitation Game" "Morten Tyldum" "Drama" ("Benedict Cumberbatch" "Keira Knightley" "Matthew Goode") 2014 114)
+		       ("The Imitation Game" "Morten Tyldum" "Drama" ("Benedict Cumberbatch" "Keira Knightley" "Matthew Goode") 2014 114 "Não assistido" #f)
 
-		       ("Memento" "Cristopher Nolan" "Thriller" ("Guy Pearce" "Carrie-Anne Moss" "Joe Pantoliano") 2000 113)
+		       ("Memento" "Cristopher Nolan" "Thriller" ("Guy Pearce" "Carrie-Anne Moss" "Joe Pantoliano") 2000 113 "Não assistido" #f)
 
-		       ("Inception" "Cristopher Nolan" "Sci-Fi" ("Leonardo DiCaprio" "Joseph Gordon-Levitt" "Ellen Page") 2010 148)
+		       ("Inception" "Cristopher Nolan" "Sci-Fi" ("Leonardo DiCaprio" "Joseph Gordon-Levitt" "Ellen Page") 2010 148 "Não assistido" #f)
 
-		       ("Bingo: O Rei das Manhãs" "Daniel Rezende" "Drama" ("Vladimir Brichta" "Emanuelle Araujo" "Raul Barreto") 2017 113)
+		       ("Bingo: O Rei das Manhãs" "Daniel Rezende" "Drama" ("Vladimir Brichta" "Emanuelle Araujo" "Raul Barreto") 2017 113 "Não assistido" #f)
 
-		       ("Tropa de Elite" "José Padilha" "Ação" ("Wagner Moura" "André Ramiro" "Caio Junqueira") 2007 115)
+		       ("Tropa de Elite" "José Padilha" "Ação" ("Wagner Moura" "André Ramiro" "Caio Junqueira") 2007 115 "Não assistido" #f)
 
-		       ("It" "Andy Muschietti" "Horror" ("Bill Skarsgard" "Jaeden Lieberher" "Finn Wolfhard") 2017 135)
+		       ("It" "Andy Muschietti" "Horror" ("Bill Skarsgard" "Jaeden Lieberher" "Finn Wolfhard") 2017 135 "Não assistido" #f)
 ))
 
 (define (nome_filme filme)
@@ -95,6 +97,12 @@
 
 (define (duracao_filme filme)
   	(cadddr (cddr filme)))
+
+(define (assistido filme)
+    (cadddr (cdddr filme)))
+
+(define (gostei filme)
+  (cadddr (cddddr filme)))
 
 (define (nome_filmes)
   (begin (printf "Nomes dos filmes: ")
@@ -121,16 +129,32 @@
     (map (lambda (filme) (duracao_filme filme)) jabiru-flix)))
 
 (define (filtra_genero genero acervo)
-  (map (lambda (filme) (if (equal? genero (genero_filme filme)) filme '())) acervo))
+  (if (null? acervo)
+      acervo
+      (if (equal? (string-upcase genero) (string-upcase (genero_filme (car acervo))))
+          (cons (car acervo) (filtra_genero genero (cdr acervo)))
+          (filtra_genero genero (cdr acervo)))))
 
 (define (filtra_diretor diretor acervo)
-  (map (lambda (filme) (if (equal? diretor (diretor_filme filme)) filme '())) acervo))
+  (if (null? acervo)
+      acervo
+      (if (equal? (string-upcase diretor) (string-upcase (diretor_filme (car acervo))))
+          (cons (car acervo) (filtra_diretor diretor (cdr acervo)))
+          (filtra_diretor diretor (cdr acervo)))))
 
 (define (filtra_ano ano acervo)
-  (map (lambda (filme) (if (equal? ano (ano_filme filme)) filme '())) acervo))
+  (if (null? acervo)
+      acervo
+      (if (equal? ano (ano_filme (car acervo)))
+          (cons (car acervo) (filtra_ano ano (cdr acervo)))
+          (filtra_ano ano (cdr acervo)))))
 
 (define (filtra_duracao duracao_min duracao_max acervo)
-  (map (lambda (filme) (if (and (>= (duracao_filme filme) duracao_min) (<= (duracao_filme filme) duracao_max)) filme '())) acervo))
+  (if (null? acervo)
+      acervo
+      (if (and (>= (duracao_filme (car acervo)) duracao_min) (<= (duracao_filme (car acervo)) duracao_max))
+          (cons (car acervo) (filtra_duracao duracao_min duracao_max (cdr acervo)))
+          (filtra_duracao duracao_min duracao_max (cdr acervo)))))
 
 (define (particionar l acu1 acu2)
          (if (null? l)
@@ -140,19 +164,6 @@
                  (particionar (cdr (cdr l)) (cons (car l) acu1) (cons (car (cdr l)) acu2) )
              )
          )
-)
-
-(define (misturar_nome l1 l2)
-       (if (null? l1)
-           l2
-           (if (null? l2)
-               l1
-               (if (string<?  (nome_filme (car l1)) (nome_filme (car l2)) )
-                   (cons (car l1) (misturar_nome (cdr l1) l2) )
-                   (cons (car l2) (misturar_nome l1 (cdr l2)) )
-               )
-           )
-       )
 )
 
 (define (ordena_nome acervo)
@@ -165,19 +176,6 @@
                  )
             )
         )
-)
-
-(define (misturar_ano l1 l2)
-       (if (null? l1)
-           l2
-           (if (null? l2)
-               l1
-               (if (<  (ano_filme (car l1)) (ano_filme (car l2)) )
-                   (cons (car l1) (misturar_ano (cdr l1) l2) )
-                   (cons (car l2) (misturar_ano l1 (cdr l2)) )
-               )
-           )
-       )
 )
 
 (define (ordena_ano acervo)
@@ -201,6 +199,32 @@
                   (misturar_duracao (ordena_duracao l1) (ordena_duracao l2) )
            ))))
 
+(define (misturar_nome l1 l2)
+       (if (null? l1)
+           l2
+           (if (null? l2)
+               l1
+               (if (string<?  (nome_filme (car l1)) (nome_filme (car l2)) )
+                   (cons (car l1) (misturar_nome (cdr l1) l2) )
+                   (cons (car l2) (misturar_nome l1 (cdr l2)) )
+               )
+           )
+       )
+)
+
+(define (misturar_ano l1 l2)
+       (if (null? l1)
+           l2
+           (if (null? l2)
+               l1
+               (if (<  (ano_filme (car l1)) (ano_filme (car l2)) )
+                   (cons (car l1) (misturar_ano (cdr l1) l2) )
+                   (cons (car l2) (misturar_ano l1 (cdr l2)) )
+               )
+           )
+       )
+)
+
  (define (misturar_duracao l1 l2)
         (if (null? l1)
             l2
@@ -213,3 +237,38 @@
             )
         )
  )
+
+(define (assistir_filme nome acervo)
+  (if (null? acervo)
+    acervo
+    (if (and (equal? (string-upcase (nome_filme (car acervo))) (string-upcase nome)) (equal? "Não assistido" (assistido (car acervo))))
+          (cons (list-set (car acervo) 6 "Assistido") (assistir_filme nome (cdr acervo)))
+          (cons (car acervo) (assistir_filme nome (cdr acervo))))))
+
+(define (gostei_filme nome acervo)
+  (if (null? acervo)
+    acervo
+    (if (and (equal? (string-upcase (nome_filme (car acervo))) (string-upcase nome)) (equal? #f (gostei (car acervo))))
+          (cons (list-set (car acervo) 7 "Gostei") (gostei_filme nome (cdr acervo)))
+          (cons (car acervo) (gostei_filme nome (cdr acervo))))))
+
+(define (ngostei_filme nome acervo)
+  (if (null? acervo)
+    acervo
+    (if (and (equal? (string-upcase (nome_filme (car acervo))) (string-upcase nome)) (equal? #f (gostei (car acervo))))
+          (cons (list-set (car acervo) 7 "Não gostei") (ngostei_filme nome (cdr acervo)))
+          (cons (car acervo) (ngostei_filme nome (cdr acervo))))))
+
+(define (mostrar_gostei acervo)
+  (if (null? acervo)
+      acervo
+      (if (equal? "Gostei" (gostei (car acervo)))
+          (cons (car acervo) (mostrar_gostei (cdr acervo)))
+          (mostrar_gostei (cdr acervo)))))
+
+(define (mostrar_assistidos acervo)
+  (if (null? acervo)
+    acervo
+    (if (equal? "Assistido" (assistido (car acervo)))
+      (cons (car acervo) (mostrar_assistidos (cdr acervo)))
+      (mostrar_assistidos (cdr acervo)))))
