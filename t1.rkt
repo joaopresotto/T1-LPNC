@@ -12,7 +12,7 @@
 ; como diretor, duração, tema, etc.           ;
 ;*********************************************;
 
-; Ex (<nome> <filme> <diretor> <atores> <ano> <duracao em min> <assistido ou não> <"gostei" ou "não gostei">)
+; Ex (<nome> <genero> <diretor> <atores> <ano> <duracao em min> <assistido ou não> <"gostei" ou "não gostei">)
 
 ; Para rodar no terminal
 ; tira o #lang racket do inicio
@@ -45,7 +45,7 @@
 
 		       ("Fight Club" "Drama" "David Fincher" ("Brad Pitt" "Edward Norton" "Meat Loaf") 1999 139 "Não assistido" #f)
 
-		       ("Matrix" "Sci-Fi" "Wachowskis" ("Keanu Reeves" "Laurence Fishburne" "Carrie-Anne Moss") 1999 136 "Não assistido" #f)
+		       ("Matrix" "Sci-Fi" "Wachowski's" ("Keanu Reeves" "Laurence Fishburne" "Carrie-Anne Moss") 1999 136 "Não assistido" #f)
 
 		       ("Dumbo" "Animation" "Samuel Armstrong" ("Sterling Holloway" "Edward Brophy" "James Baskett") 1941 64 "Não assistido" #f)
 
@@ -67,17 +67,17 @@
 
 		       ("Star Wars: Episode V - The Empire Strikes Back" "Fantasy" "Irving Kershner" ("Mark Hamill" "Harrison Ford" "Carrie Fisher") 1980 124 "Não assistido" #f)
 
-		       ("The Imitation Game" "Morten Tyldum" "Drama" ("Benedict Cumberbatch" "Keira Knightley" "Matthew Goode") 2014 114 "Não assistido" #f)
+		       ("The Imitation Game" "Drama" "Morten Tyldum" ("Benedict Cumberbatch" "Keira Knightley" "Matthew Goode") 2014 114 "Não assistido" #f)
 
-		       ("Memento" "Cristopher Nolan" "Thriller" ("Guy Pearce" "Carrie-Anne Moss" "Joe Pantoliano") 2000 113 "Não assistido" #f)
+		       ("Memento" "Thriller" "Cristopher Nolan" ("Guy Pearce" "Carrie-Anne Moss" "Joe Pantoliano") 2000 113 "Não assistido" #f)
 
-		       ("Inception" "Cristopher Nolan" "Sci-Fi" ("Leonardo DiCaprio" "Joseph Gordon-Levitt" "Ellen Page") 2010 148 "Não assistido" #f)
+		       ("Inception" "Sci-Fi" "Cristopher Nolan" ("Leonardo DiCaprio" "Joseph Gordon-Levitt" "Ellen Page") 2010 148 "Não assistido" #f)
 
-		       ("Bingo: O Rei das Manhãs" "Daniel Rezende" "Drama" ("Vladimir Brichta" "Emanuelle Araujo" "Raul Barreto") 2017 113 "Não assistido" #f)
+		       ("Bingo: O Rei das Manhãs" "Drama" "Daniel Rezende" ("Vladimir Brichta" "Emanuelle Araujo" "Raul Barreto") 2017 113 "Não assistido" #f)
 
-		       ("Tropa de Elite" "José Padilha" "Ação" ("Wagner Moura" "André Ramiro" "Caio Junqueira") 2007 115 "Não assistido" #f)
+		       ("Tropa de Elite" "Ação" "José Padilha" ("Wagner Moura" "André Ramiro" "Caio Junqueira") 2007 115 "Não assistido" #f)
 
-		       ("It" "Andy Muschietti" "Horror" ("Bill Skarsgard" "Jaeden Lieberher" "Finn Wolfhard") 2017 135 "Não assistido" #f)
+		       ("It" "Horror" "Andy Muschietti" ("Bill Skarsgard" "Jaeden Lieberher" "Finn Wolfhard") 2017 135 "Não assistido" #f)
 ))
 
 (define (nome_filme filme)
