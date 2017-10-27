@@ -272,3 +272,10 @@
     (if (equal? "Assistido" (assistido (car acervo)))
       (cons (car acervo) (mostrar_assistidos (cdr acervo)))
       (mostrar_assistidos (cdr acervo)))))
+
+(define (remover_ngostei acervo)
+  (if(null? acervo)
+    acervo
+    (if(equal? "Não gostei" (gostei (car acervo)))
+      (remover_ngostei (cdr acervo))
+      (cons (car acervo) (remover_ngostei (cdr acervo))))))
