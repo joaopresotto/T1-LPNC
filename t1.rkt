@@ -12,72 +12,72 @@
 ; como diretor, duração, tema, etc.           ;
 ;*********************************************;
 
-; Ex (<nome> <genero> <diretor> <atores> <ano> <duracao em min> <assistido ou não> <"gostei" ou "não gostei">)
+; Ex (<nome> <genero> <diretor> <atores> <ano> <duracao em min> <assistido ou não> <"gostei" ou "não gostei"> <"Assistir mais tarde" ou #f>")
 
 ; Para rodar no terminal
 ; tira o #lang racket do inicio
 ; racket -f <nome-do-programa>.rkt -i
 ; #lang racket
 
-(define jabiru-flix '( ("Blade Runner" "Sci-Fi" "Ridley Scott" ("Harrison Ford" "Rutger Hauer" "Sean Young") 1982 117 "Não assistido" #f)
+(define jabiru-flix '( ("Blade Runner" "Sci-Fi" "Ridley Scott" ("Harrison Ford" "Rutger Hauer" "Sean Young") 1982 117 "Não assistido" #f #f)
 
-                       ("Blade Runner 2049" "Sci-Fi" "Denis Villeneuve" ("Harrison Ford" "Ryan Gosling" "Ana de Armas") 2017 164 "Não assistido" #f)
+                       ("Blade Runner 2049" "Sci-Fi" "Denis Villeneuve" ("Harrison Ford" "Ryan Gosling" "Ana de Armas") 2017 164 "Não assistido" #f #f)
 
-		       ("Raiders of the Lost Ark" "Aventura" "Steven Spielberg" ("Harrison Ford" "Karen Allen" "Paul Freeman") 1981 115 "Não assistido" #f)
+		       ("Raiders of the Lost Ark" "Aventura" "Steven Spielberg" ("Harrison Ford" "Karen Allen" "Paul Freeman") 1981 115 "Não assistido" #f #f)
 
-		       ("Pulp Fiction" "Crime"  "Quentin Tarantino" ("John Travolta" "Uma Thurman" "Samuel L. Jackson") 1994 154 "Não assistido" #f)
+		       ("Pulp Fiction" "Crime"  "Quentin Tarantino" ("John Travolta" "Uma Thurman" "Samuel L. Jackson") 1994 154 "Não assistido" #f #f)
 
-		       ("Terminator 2" "Sci-Fi" "James Cameron" ("Arnold Schwarzenegger" "Linda Hamilton" "Edward Furlong") 1991 137 "Não assistido" #f)
+		       ("Terminator 2" "Sci-Fi" "James Cameron" ("Arnold Schwarzenegger" "Linda Hamilton" "Edward Furlong") 1991 137 "Não assistido" #f #f)
 
-		       ("E.T. the Extra-Terrestrial" "Sci-Fi" "Steven Spielberg" ("Henry Thomas" "Drew Barrymore" "Peter Coyote") 1982 115 "Não assistido" #f)
+		       ("E.T. the Extra-Terrestrial" "Sci-Fi" "Steven Spielberg" ("Henry Thomas" "Drew Barrymore" "Peter Coyote") 1982 115 "Não assistido" #f #f)
 
-		       ("The Godfather" "Drama" "Francis Ford Coppola" ("Marlon Brando" "Al Pacino" "James Caan") 1972 175 "Não assistido" #f)
+		       ("The Godfather" "Drama" "Francis Ford Coppola" ("Marlon Brando" "Al Pacino" "James Caan") 1972 175 "Não assistido" #f #f)
 
-		       ("Scarface" "Crime" "Brian de Palma" ("Al Pacino" "Michelle Pfeiffer" "Steven Bauer") 1983 170 "Não assistido" #f)
+		       ("Scarface" "Crime" "Brian de Palma" ("Al Pacino" "Michelle Pfeiffer" "Steven Bauer") 1983 170 "Não assistido" #f #f)
 
-		       ("The Others" "Mistery" "Alejandro Amenabar" ("Nicole Kidman" "Christopher Eccleston" "Fionnula Flanagan") 2001 101 "Não assistido" #f)
+		       ("The Others" "Mistery" "Alejandro Amenabar" ("Nicole Kidman" "Christopher Eccleston" "Fionnula Flanagan") 2001 101 "Não assistido" #f #f)
 
-		       ("1984" "Drama" "Michael Anderson" ("Edmond O'Brien" "Michael Redgrave" "Jan Sterling") 1956  90 "Não assistido" #f)
+		       ("1984" "Drama" "Michael Anderson" ("Edmond O'Brien" "Michael Redgrave" "Jan Sterling") 1956  90 "Não assistido" #f #f)
 
-		       ("Gladiator" "Ação" "Ridley Scott" ("Russell Crowe" "Joaquin Phoenix" "Connie Nielsen") 2000 155 "Não assistido" #f)
+		       ("Gladiator" "Ação" "Ridley Scott" ("Russell Crowe" "Joaquin Phoenix" "Connie Nielsen") 2000 155 "Não assistido" #f #f)
 
-		       ("Titanic" "Drama" "James Cameron" ("Leonardo DiCaprio" "Kate Winslet" "Billy Zane") 1997 194 "Não assistido" #f)
+		       ("Titanic" "Drama" "James Cameron" ("Leonardo DiCaprio" "Kate Winslet" "Billy Zane") 1997 194 "Não assistido" #f #f)
 
-		       ("Fight Club" "Drama" "David Fincher" ("Brad Pitt" "Edward Norton" "Meat Loaf") 1999 139 "Não assistido" #f)
+		       ("Fight Club" "Drama" "David Fincher" ("Brad Pitt" "Edward Norton" "Meat Loaf") 1999 139 "Não assistido" #f #f)
 
-		       ("Matrix" "Sci-Fi" "Wachowski's" ("Keanu Reeves" "Laurence Fishburne" "Carrie-Anne Moss") 1999 136 "Não assistido" #f)
+		       ("Matrix" "Sci-Fi" "Wachowski's" ("Keanu Reeves" "Laurence Fishburne" "Carrie-Anne Moss") 1999 136 "Não assistido" #f #f)
 
-		       ("Dumbo" "Animation" "Samuel Armstrong" ("Sterling Holloway" "Edward Brophy" "James Baskett") 1941 64 "Não assistido" #f)
+		       ("Dumbo" "Animation" "Samuel Armstrong" ("Sterling Holloway" "Edward Brophy" "James Baskett") 1941 64 "Não assistido" #f #f)
 
-		       ("The Lion King" "Animation" "Roger Allers" ("Matthew Broderick" "Jeremy Irons" "James Earl Jones") 1994 88 "Não assistido" #f)
+		       ("The Lion King" "Animation" "Roger Allers" ("Matthew Broderick" "Jeremy Irons" "James Earl Jones") 1994 88 "Não assistido" #f #f)
 
-		       ("Tarzan" "Animation" "Chris Buck" ("Tony Goldwyn" "Minnie Driver" "Brian Blessed") 1999 88 "Não assistido" #f)
+		       ("Tarzan" "Animation" "Chris Buck" ("Tony Goldwyn" "Minnie Driver" "Brian Blessed") 1999 88 "Não assistido" #f #f)
 
-		       ("Se7en" "Mystery" "David Fincher" ("Morgan Freeman" "Brad Pitt" "Kevin Spacey") 1995  127 "Não assistido" #f)
+		       ("Se7en" "Mystery" "David Fincher" ("Morgan Freeman" "Brad Pitt" "Kevin Spacey") 1995  127 "Não assistido" #f #f)
 
-		       ("Fargo" "Thriller" "Coen Brothers" ("William H. Macy" "Frances McDormand" "Steve Buscemi") 1996 98 "Não assistido" #f)
+		       ("Fargo" "Thriller" "Coen Brothers" ("William H. Macy" "Frances McDormand" "Steve Buscemi") 1996 98 "Não assistido" #f #f)
 
-		       ("Predestination" "Sci-Fi" "The Spierig Brothers" ("Ethan Hawke" "Sarah Snook" "Noah Taylor") 2014 97 "Não assistido" #f)
+		       ("Predestination" "Sci-Fi" "The Spierig Brothers" ("Ethan Hawke" "Sarah Snook" "Noah Taylor") 2014 97 "Não assistido" #f #f)
 
-		       ("Arrival" "Sci-Fi" "Denis Villeneuve" ("Amy Adams" "Jeremy Renner" "Forest Whitaker") 2016 116 "Não assistido" #f)
+		       ("Arrival" "Sci-Fi" "Denis Villeneuve" ("Amy Adams" "Jeremy Renner" "Forest Whitaker") 2016 116 "Não assistido" #f #f)
 
-		       ("Hidden Figures" "Drama" "Theodore Melfi" ("Taraji P. Henson" "Octavia Spencer" "Janelle Monae") 2016 127 "Não assistido" #f)
+		       ("Hidden Figures" "Drama" "Theodore Melfi" ("Taraji P. Henson" "Octavia Spencer" "Janelle Monae") 2016 127 "Não assistido" #f #f)
 
-		       ("La La Land" "Music" "Damien Chazelle" ("Ryan Gosling" "Emma Stone" "Rosemarie DeWitt") 2016 128 "Não assistido" #f)
+		       ("La La Land" "Music" "Damien Chazelle" ("Ryan Gosling" "Emma Stone" "Rosemarie DeWitt") 2016 128 "Não assistido" #f #f)
 
-		       ("Star Wars: Episode V - The Empire Strikes Back" "Fantasy" "Irving Kershner" ("Mark Hamill" "Harrison Ford" "Carrie Fisher") 1980 124 "Não assistido" #f)
+		       ("Star Wars: Episode V - The Empire Strikes Back" "Fantasy" "Irving Kershner" ("Mark Hamill" "Harrison Ford" "Carrie Fisher") 1980 124 "Não assistido" #f #f)
 
-		       ("The Imitation Game" "Drama" "Morten Tyldum" ("Benedict Cumberbatch" "Keira Knightley" "Matthew Goode") 2014 114 "Não assistido" #f)
+		       ("The Imitation Game" "Drama" "Morten Tyldum" ("Benedict Cumberbatch" "Keira Knightley" "Matthew Goode") 2014 114 "Não assistido" #f #f)
 
-		       ("Memento" "Thriller" "Cristopher Nolan" ("Guy Pearce" "Carrie-Anne Moss" "Joe Pantoliano") 2000 113 "Não assistido" #f)
+		       ("Memento" "Thriller" "Cristopher Nolan" ("Guy Pearce" "Carrie-Anne Moss" "Joe Pantoliano") 2000 113 "Não assistido" #f #f)
 
-		       ("Inception" "Sci-Fi" "Cristopher Nolan" ("Leonardo DiCaprio" "Joseph Gordon-Levitt" "Ellen Page") 2010 148 "Não assistido" #f)
+		       ("Inception" "Sci-Fi" "Cristopher Nolan" ("Leonardo DiCaprio" "Joseph Gordon-Levitt" "Ellen Page") 2010 148 "Não assistido" #f #f)
 
-		       ("Bingo: O Rei das Manhãs" "Drama" "Daniel Rezende" ("Vladimir Brichta" "Emanuelle Araujo" "Raul Barreto") 2017 113 "Não assistido" #f)
+		       ("Bingo: O Rei das Manhãs" "Drama" "Daniel Rezende" ("Vladimir Brichta" "Emanuelle Araujo" "Raul Barreto") 2017 113 "Não assistido" #f #f)
 
-		       ("Tropa de Elite" "Ação" "José Padilha" ("Wagner Moura" "André Ramiro" "Caio Junqueira") 2007 115 "Não assistido" #f)
+		       ("Tropa de Elite" "Ação" "José Padilha" ("Wagner Moura" "André Ramiro" "Caio Junqueira") 2007 115 "Não assistido" #f #f)
 
-		       ("It" "Horror" "Andy Muschietti" ("Bill Skarsgard" "Jaeden Lieberher" "Finn Wolfhard") 2017 135 "Não assistido" #f)
+		       ("It" "Horror" "Andy Muschietti" ("Bill Skarsgard" "Jaeden Lieberher" "Finn Wolfhard") 2017 135 "Não assistido" #f #f)
 ))
 
 (define (nome_filme filme)
@@ -103,6 +103,9 @@
 
 (define (gostei filme)
   (cadddr (cddddr filme)))
+
+(define (mais_tarde filme)
+    (cadddr (cddr (cdddr filme))))
 
 (define (nome_filmes)
   (begin (printf "Nomes dos filmes: ")
@@ -259,6 +262,20 @@
           (cons (list-set (car acervo) 7 "Não gostei") (ngostei_filme nome (cdr acervo)))
           (cons (car acervo) (ngostei_filme nome (cdr acervo))))))
 
+(define (set_assistir_mais_tarde nome acervo)
+  (if (null? acervo)
+    acervo
+    (if (and (equal? (string-upcase (nome_filme (car acervo))) (string-upcase nome)) (equal? #f (mais_tarde (car acervo))))
+        (cons (list-set (car acervo) 8 "Assistir mais tarde") (set_assistir_mais_tarde nome (cdr acervo)))
+        (cons (car acervo) (set_assistir_mais_tarde nome (cdr acervo))))))
+
+(define (unset_assistir_mais_tarde nome acervo)
+  (if (null? acervo)
+    acervo
+    (if (and (equal? (string-upcase (nome_filme (car acervo))) (string-upcase nome)) (equal? "Assistir mais tarde" (mais_tarde (car acervo))))
+        (cons (list-set (car acervo) 8 #f) (unset_assistir_mais_tarde nome (cdr acervo)))
+        (cons (car acervo) (unset_assistir_mais_tarde nome (cdr acervo))))))
+
 (define (mostrar_gostei acervo)
   (if (null? acervo)
       acervo
@@ -274,8 +291,15 @@
       (mostrar_assistidos (cdr acervo)))))
 
 (define (remover_ngostei acervo)
-  (if(null? acervo)
+  (if (null? acervo)
     acervo
     (if(equal? "Não gostei" (gostei (car acervo)))
       (remover_ngostei (cdr acervo))
       (cons (car acervo) (remover_ngostei (cdr acervo))))))
+
+(define (mostrar_assistir_mais_tarde acervo)
+  (if (null? acervo)
+    acervo
+    (if(equal? "Assistir mais tarde" (mais_tarde (car acervo)))
+      (cons (car acervo) (mostrar_assistir_mais_tarde (cdr acervo)))
+      (mostrar_assistir_mais_tarde (cdr acervo)))))
